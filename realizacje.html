@@ -2,6 +2,7 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
+<meta name="theme-color" content="#EDE9E2">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Realizacje - SZYMBUD</title>
 <meta name="description" content="Realizacje SZYMBUD: Fundamenty i zbrojenie, Stan surowy, Więźba i dach, Wykończenie wnętrza, Elewacja i docieplenie">
@@ -19,97 +20,102 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=dda6634d">
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css?v=20261104">
 </head>
 <body>
 
 <header class="nav">
-  <div class="wrap nav-inner">
-    <a class="brand" href="index.html"><span class="name">SZYMBUD</span><span class="sub">Miastko</span></a>
-    <nav class="nav-links">
-      <a href="oferta.html">Oferta</a>
-      <a href="realizacje.html" class="active" aria-current="page">Realizacje</a>
-      <a href="o-nas.html">O nas</a>
-      <a href="kontakt.html">Kontakt</a>
-      <a href="tel:+48696498037" class="btn btn-accent">Zadzwoń +48 696 498 037</a>
-    </nav>
-    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="SZYMBUD - strona główna"><span class="name">SZYMBUD</span><span class="tag">Budownictwo · Miastko</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-controls="menu"><span></span><span></span></button>
+    <a class="nav-phone" href="tel:+48696498037">+48 696 498 037 <span class="arr">→</span></a>
   </div>
+  <nav class="nav-links" id="menu" aria-label="Menu główne">
+    <div class="menu-inner">
+      <div class="menu-top"><span class="name">SZYMBUD</span><span></span><a class="btn" href="tel:+48696498037">+48 696 498 037</a></div>
+      <div class="menu-cols">
+        <ul class="menu-main">
+          <li><a href="index.html">Start</a></li>
+          <li><a href="oferta.html">Oferta</a></li>
+          <li><a href="realizacje.html">Realizacje</a></li>
+          <li><a href="o-nas.html">O&nbsp;nas</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+        <div class="menu-col"><p class="menu-ttl">Usługi</p><ul><li><a href="oferta.html#budowa-domow">Budowa domów</a></li><li><a href="oferta.html#stany-surowe">Stany surowe</a></li><li><a href="oferta.html#remonty">Remonty i&nbsp;modernizacje</a></li><li><a href="oferta.html#wykonczenia">Wykończenia wnętrz</a></li><li><a href="oferta.html#elewacje">Elewacje i&nbsp;docieplenia</a></li><li><a href="oferta.html#murarka">Prace murarskie i&nbsp;tynkarskie</a></li></ul></div>
+        <div class="menu-col"><p class="menu-ttl">Kontakt</p><ul>
+          <li><a href="tel:+48696498037">+48 696 498 037</a></li>
+          <li><a href="https://wa.me/48696498037" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li class="muted">Miastko i&nbsp;okolice</li>
+        </ul></div>
+      </div>
+    </div>
+  </nav>
 </header>
 
 <main>
-<section class="pagehead">
-  <img src="img/g10.jpg" alt="SZYMBUD - Nasze prace" width="1600" height="1068" decoding="async">
-  <div class="wrap">
-    <span class="eyebrow">Realizacje</span>
+<section class="banner banner--sub banner--r">
+  <div class="banner__content">
+    <span class="sub">Realizacje</span>
     <h1>Nasze prace</h1>
-    <p>Zdjęcia z naszych budów - od zbrojenia fundamentów po skończone wnętrza. Żadnych kadrów z katalogu.</p>
+    <p class="banner__txt">Domy, stany surowe, elewacje i&nbsp;wnętrza. Tak wyglądają prace, które prowadzimy w&nbsp;Miastku i&nbsp;okolicach.</p>
+    <div class="btns"><a class="btn" href="kontakt.html">Zapytaj o&nbsp;wycenę</a></div>
+  </div>
+  <figure class="hero-img banner__img"><img src="img/g10.jpg" alt="Nowoczesny dom z drewnianą elewacją" fetchpriority="high" width="1600" height="1066"></figure>
+</section>
+
+<section class="bg-ink pv">
+  <h2 class="huge reveal">Realizacje</h2>
+  <div class="wrap-s mt-m">
+    <div class="masonry"><figure class="tile"><img loading="lazy" src="img/g1.jpg" alt="Dom jednorodzinny" decoding="async"><figcaption class="cap">Dom jednorodzinny</figcaption></figure><figure class="tile"><img loading="lazy" src="img/g2.jpg" alt="Taras i elewacja" decoding="async"><figcaption class="cap">Taras i&nbsp;elewacja</figcaption></figure><figure class="tile"><img loading="lazy" src="img/g13.jpg" alt="Stan surowy" decoding="async"><figcaption class="cap">Stan surowy</figcaption></figure><figure class="tile"><img loading="lazy" src="img/g5.jpg" alt="Poddasze" decoding="async"><figcaption class="cap">Poddasze</figcaption></figure><figure class="tile"><img loading="lazy" src="img/g11.jpg" alt="Klinkier i tynk" decoding="async"><figcaption class="cap">Klinkier i&nbsp;tynk</figcaption></figure><figure class="tile"><img loading="lazy" src="img/g14.jpg" alt="Gładzie" decoding="async"><figcaption class="cap">Gładzie</figcaption></figure><figure class="tile"><img loading="lazy" src="img/g3.jpg" alt="Dach i poddasze" decoding="async"><figcaption class="cap">Dach i&nbsp;poddasze</figcaption></figure><figure class="tile"><img loading="lazy" src="img/g7.jpg" alt="Wykończenie wnętrza" decoding="async"><figcaption class="cap">Wykończenie wnętrza</figcaption></figure><figure class="tile"><img loading="lazy" src="img/g6.jpg" alt="Remont dachu" decoding="async"><figcaption class="cap">Remont dachu</figcaption></figure><figure class="tile"><img loading="lazy" src="img/g9.jpg" alt="Elewacja" decoding="async"><figcaption class="cap">Elewacja</figcaption></figure><figure class="tile"><img loading="lazy" src="img/g4.jpg" alt="Tynki" decoding="async"><figcaption class="cap">Tynki</figcaption></figure><figure class="tile"><img loading="lazy" src="img/g12.jpg" alt="Dom pod klucz" decoding="async"><figcaption class="cap">Dom pod klucz</figcaption></figure><figure class="tile"><img loading="lazy" src="img/g8.jpg" alt="Prace murarskie" decoding="async"><figcaption class="cap">Prace murarskie</figcaption></figure><figure class="tile"><img loading="lazy" src="img/about.jpg" alt="Otoczenie domu" decoding="async"><figcaption class="cap">Otoczenie domu</figcaption></figure></div>
+    <p class="note">Zdjęcia poglądowe.</p>
   </div>
 </section>
-<section>
-  <div class="wrap">
-    <div class="gallery">
-      <div class="tile t-two3 reveal"><img src="img/g1.jpg" alt="SZYMBUD" loading="lazy" width="1600" height="1068" decoding="async"></div>
-      <div class="tile t-third reveal"><img src="img/g2.jpg" alt="SZYMBUD" loading="lazy" width="1600" height="1068" decoding="async"></div>
-      <div class="tile t-third reveal"><img src="img/g3.jpg" alt="SZYMBUD" loading="lazy" width="1600" height="1066" decoding="async"></div>
-      <div class="tile t-third reveal"><img src="img/g4.jpg" alt="SZYMBUD" loading="lazy" width="1600" height="1066" decoding="async"></div>
-      <div class="tile t-third reveal"><img src="img/g5.jpg" alt="SZYMBUD" loading="lazy" width="1600" height="1068" decoding="async"></div>
-      <div class="tile t-third reveal"><img src="img/g6.jpg" alt="SZYMBUD" loading="lazy" width="1600" height="1066" decoding="async"></div>
-      <div class="tile t-two3 reveal"><img src="img/g7.jpg" alt="SZYMBUD" loading="lazy" width="1600" height="1068" decoding="async"></div>
-      <div class="tile t-third reveal"><img src="img/g8.jpg" alt="SZYMBUD" loading="lazy" width="1600" height="1066" decoding="async"></div>
-      <div class="tile t-third reveal"><img src="img/g9.jpg" alt="SZYMBUD" loading="lazy" width="1600" height="1066" decoding="async"></div>
-      <div class="tile t-third reveal"><img src="img/g11.jpg" alt="SZYMBUD" loading="lazy" width="1600" height="1066" decoding="async"></div>
-      <div class="tile t-two3 reveal"><img src="img/g12.jpg" alt="SZYMBUD" loading="lazy" width="1600" height="1065" decoding="async"></div>
-      <div class="tile t-third reveal"><img src="img/g13.jpg" alt="SZYMBUD" loading="lazy" width="1600" height="1066" decoding="async"></div>
-    </div>
-    <p class="muted reveal" style="margin-top:var(--space-7);font-size:var(--text-sm);max-width:62ch">Zdjęcia poglądowe.</p>
-  </div>
-</section>
-<section class="cta">
-  <div class="wrap">
-    <div class="reveal">
-      <span class="eyebrow">Współpraca</span>
-      <h2>Spodobały Ci się nasze prace?</h2>
-      <p>Opowiedz, co trzeba zrobić - przygotujemy wycenę.</p>
-    </div>
-    <div class="cta-actions reveal">
-      <a href="kontakt.html" class="btn btn-light">Zapytaj o wycenę <span class="arr">→</span></a>
-      <a href="tel:+48696498037" class="btn btn-ghost btn-ghost-cta">+48 696 498 037</a>
-    </div>
+
+<section class="bg-ink pv call cta">
+  <div class="wrap reveal">
+    <span class="sub">Spodobały Ci się nasze prace?</span>
+    <a class="phone-big" href="tel:+48696498037">+48 696 498 037</a>
+      <p class="lead">Opowiedz, co trzeba zrobić. Przygotujemy wycenę.</p>
+    <div class="btns"><a class="btn" href="tel:+48696498037">Zadzwoń teraz</a><a class="btn" href="https://wa.me/48696498037" target="_blank" rel="noopener">Napisz na WhatsApp</a></div>
   </div>
 </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <div class="name">SZYMBUD</div>
-        <p>Nie zbierasz kilku ekip do jednej budowy - całość prowadzimy i za całość odpowiadamy. Wiesz, co i kiedy dzieje się na Twojej budowie.</p>
-      </div>
-      <div class="foot-col">
-        <h4>Nawigacja</h4>
+    <div class="foot-top">
+      <div class="foot-list">
+        <a href="tel:+48696498037">+48 696 498 037</a>
+        <a href="https://wa.me/48696498037" target="_blank" rel="noopener">WhatsApp: +48 696 498 037</a>
+        <span class="muted">Obszar działania</span>
+        <span>Miastko i&nbsp;okolice</span>
         <a href="oferta.html">Oferta</a>
         <a href="realizacje.html">Realizacje</a>
-        <a href="o-nas.html">O nas</a>
+        <a href="o-nas.html">O&nbsp;nas</a>
         <a href="kontakt.html">Kontakt</a>
       </div>
-      <div class="foot-col">
-        <h4>Kontakt</h4>
-        <a href="tel:+48696498037">+48 696 498 037</a>
-        <p>Miastko</p>
+      <div class="foot-side">
+        <div><a class="lnk" href="tel:+48696498037">Telefon <span class="arr">→</span></a><span class="foot-note">Wycena bez zobowiązań</span></div>
+        <div><a class="lnk" href="https://wa.me/48696498037" target="_blank" rel="noopener">WhatsApp <span class="arr">→</span></a><span class="foot-note">Prześlij projekt albo zdjęcia</span></div>
+      </div>
+    </div>
+    <div class="foot-mid">
+      <div class="name">SZYMBUD<small>Budownictwo · Miastko</small></div>
+      <div class="foot-cta">
+        <span class="big">Masz projekt albo dom do remontu?</span>
+        <a class="lnk" href="https://wa.me/48696498037" target="_blank" rel="noopener">Wyślij go na WhatsApp <span class="arr">→</span></a>
       </div>
     </div>
     <div class="foot-bot">
-      <span>© 2026 SZYMBUD</span>
-      <span>Projekt strony: <a class="foot-credit" href="https://impulseo.pl" target="_blank" rel="noopener">Impulseo</a></span>
+      <span>SZYMBUD<br>Miastko i&nbsp;okolice</span>
+      <span>© 2026 SZYMBUD<br>Projekt strony: <a class="foot-credit" href="https://impulseo.pl" target="_blank" rel="noopener">Impulseo</a></span>
     </div>
   </div>
 </footer>
 <div class="sticky-call"><a class="sc-call" href="tel:+48696498037"><svg class="ico-tel" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.58 3.6a1 1 0 0 1-.25 1l-2.23 2.2Z" fill="currentColor"/></svg> Zadzwoń</a><a class="sc-quote" href="https://wa.me/48696498037" target="_blank" rel="noopener">WhatsApp</a></div>
 <div class="demo-wazne" data-do="2026-11-10" data-cykl="3" hidden><svg class="dw-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.6" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.2V12l3.3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="dw-txt"></span></div>
 
-<script src="assets/main.js"></script>
+<script src="assets/main.js?v=20261104"></script>
 </body>
 </html>

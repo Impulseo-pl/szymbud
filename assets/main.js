@@ -65,23 +65,43 @@
   upd();
 })();
 
-// Pasek nawigacji: rezerwa miejsca pod CTA odpiete absolutnie na prawo (K. 05.08.2026).
-// Rezerwa byla STALA (12rem = 192px), a przycisk rosnie razem z numerem telefonu
-// ("Zadzwon +48 730 696 616" = 230px) - wtedy "Kontakt" wchodzil na ramke przycisku.
-// Liczymy ja z realnej szerokosci przycisku, wiec dziala dla kazdej dlugosci numeru i nazwy.
+
+/* === SZYMBUD: menu na pełny ekran + karuzele (układ wg wzoru, 04.11.2026) === */
 (function () {
-  var links = document.querySelector('.nav-links');
-  var cta = links && links.querySelector('a.btn-accent');
-  if (!links || !cta) return;
-  function upd() {
-    if (window.innerWidth <= 680) { links.style.paddingRight = ''; return; }  // mobile: CTA jest w flow
-    var w = cta.getBoundingClientRect().width;
-    if (w) links.style.paddingRight = Math.ceil(w + 32) + 'px';
-  }
-  upd();
-  window.addEventListener('resize', upd, { passive: true });
-  window.addEventListener('load', upd);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(upd);  // font zmienia szerokosc
+  try {
+    var t = document.querySelector('.nav-toggle'), m = document.querySelector('.nav-links');
+    if (t && m) {
+      var sync = function () { document.documentElement.classList.toggle('menu-open', m.classList.contains('open')); t.setAttribute('aria-expanded', m.classList.contains('open') ? 'true' : 'false'); };
+      t.addEventListener('click', function () { setTimeout(sync, 0); });
+      m.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setTimeout(sync, 0); }); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && m.classList.contains('open')) { m.classList.remove('open'); sync(); } });
+    }
+  } catch (e) {}
+  try {
+    var st = document.querySelectorAll('.stopklatka');
+    if (st.length && 'IntersectionObserver' in window) {
+      document.documentElement.classList.add('stk-js');
+      var sio = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target.classList.toggle('stk-on', e.isIntersecting); }); }, { rootMargin: '60% 0px 60% 0px' });
+      st.forEach(function (s) { sio.observe(s); });
+    }
+  } catch (e) { document.documentElement.classList.remove('stk-js'); }
+  try {
+    document.querySelectorAll('[data-rail]').forEach(function (r) {
+      var tr = r.querySelector('.rail-track'); if (!tr) return;
+      var prev = r.querySelector('[data-prev]'), next = r.querySelector('[data-next]'), bar = r.querySelector('.rail-bar i');
+      var step = function () { var it = tr.querySelector('.rail-item'); if (!it) return tr.clientWidth; var g = parseFloat(getComputedStyle(tr).columnGap) || 0; return it.getBoundingClientRect().width + g; };
+      var upd = function () {
+        var max = tr.scrollWidth - tr.clientWidth;
+        if (prev) prev.disabled = tr.scrollLeft <= 2;
+        if (next) next.disabled = tr.scrollLeft >= max - 2;
+        if (bar) { var w = Math.max(12, tr.clientWidth / tr.scrollWidth * 100); bar.style.width = w + '%'; bar.style.left = (max > 0 ? tr.scrollLeft / max : 0) * (100 - w) + '%'; }
+      };
+      if (prev) prev.addEventListener('click', function () { tr.scrollBy({ left: -step(), behavior: 'smooth' }); });
+      if (next) next.addEventListener('click', function () { tr.scrollBy({ left: step(), behavior: 'smooth' }); });
+      tr.addEventListener('scroll', function () { requestAnimationFrame(upd); }, { passive: true });
+      window.addEventListener('resize', upd, { passive: true }); window.addEventListener('load', upd); upd();
+    });
+  } catch (e) {}
 })();
 
 // LICZNIK WAŻNOŚCI DEMA (K. 09.08: pełne odliczanie dni/godzin/minut/sekund).
@@ -149,33 +169,6 @@
     }, { threshold: 0.01 });
     cele.forEach(function (el) { io.observe(el); });
   } catch (e) {}
-})();
-
-/* === rodzina: fachowcy === */
-/* === rodzina FACHOWCY ===
-   TYLKO suwak PRZED/PO (before/after). NAV NIE chowa się (auto-hide) - telefon-CTA ma być ZAWSZE widoczny (decyzja FAZA 3).
-   is-stuck (przezroczysty->cień) obsługuje base.js. */
-(function () {
-  var sliders = document.querySelectorAll('[data-ba]');
-  if (!sliders.length) return;
-  sliders.forEach(function (s) {
-    var dragging = false;
-    function setPos(clientX) {
-      var r = s.getBoundingClientRect();
-      var p = ((clientX - r.left) / r.width) * 100;
-      p = Math.max(3, Math.min(97, p));
-      s.style.setProperty('--ba-pos', p + '%');
-    }
-    function down(e) { dragging = true; setPos(e.touches ? e.touches[0].clientX : e.clientX); }
-    function move(e) { if (dragging) setPos(e.touches ? e.touches[0].clientX : e.clientX); }
-    function up() { dragging = false; }
-    s.addEventListener('pointerdown', down);
-    window.addEventListener('pointermove', move, { passive: true });
-    window.addEventListener('pointerup', up);
-    s.addEventListener('touchstart', down, { passive: true });
-    s.addEventListener('touchmove', move, { passive: true });
-    s.addEventListener('touchend', up);
-  });
 })();
 
 /* === NAV NOBU kontroler (silnik) === */
@@ -784,3 +777,4 @@
 
 /* === licznik otwarć demo (buy-signal) v3 — geo po stronie serwera === */
 (function(){try{if(String(location.protocol).indexOf('http')!==0)return;try{if(/[?&#]team=1/.test(location.search+location.hash)){localStorage.setItem('nb_team','1');}}catch(e){}try{if(localStorage.getItem('nb_team')==='1')return;}catch(e){}if(/crm-newbeginning|crm\.impulseo\.pl/.test(document.referrer||''))return;try{if(navigator.webdriver)return;}catch(e){}try{if(/^https?:\/\/(kris20032|impulseo-pl)\.github\.io\/?$/i.test(document.referrer||''))return;}catch(e){}if(sessionStorage.getItem('_dv'))return;sessionStorage.setItem('_dv','1');var seg=(location.pathname.split('/').filter(Boolean)[0])||'';var base=location.origin+(seg?('/'+seg):'');var ua='';try{ua=(navigator.userAgent||'').slice(0,300);}catch(e){}var EP='https://zngfubfinbojfgaxdrbf.supabase.co/functions/v1/demo-view';try{fetch(EP,{method:'POST',keepalive:true,headers:{'Content-Type':'text/plain'},body:JSON.stringify({demo_url:base,page:location.pathname,referrer:(document.referrer||null),user_agent:(ua||null)})}).catch(function(){});}catch(e){}}catch(e){}})();
+
